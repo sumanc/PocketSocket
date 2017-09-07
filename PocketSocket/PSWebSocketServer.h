@@ -13,9 +13,9 @@
 //  limitations under the License.
 
 #import <Foundation/Foundation.h>
+#import "PSWebSocket.h"
 
 @class PSWebSocketServer;
-@class PSWebSocket;
 
 @protocol PSWebSocketServerDelegate <NSObject>
 
