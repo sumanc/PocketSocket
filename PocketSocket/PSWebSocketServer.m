@@ -81,7 +81,11 @@ void PSWebSocketServerAcceptCallback(CFSocketRef s, CFSocketCallBackType type, C
     
     NSMutableSet *_webSockets;
 }
+
+@property (nonatomic, strong) dispatch_queue_t delegateQueue;
+
 @end
+
 @implementation PSWebSocketServer
 
 #pragma mark - Properties

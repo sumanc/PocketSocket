@@ -13,9 +13,9 @@
 //  limitations under the License.
 
 #import <Foundation/Foundation.h>
-#import "PSWebSocket.h"
 
 @class PSWebSocketServer;
+@class PSWebSocket;
 
 @protocol PSWebSocketServerDelegate <NSObject>
 
@@ -42,7 +42,6 @@
 #pragma mark - Properties
 
 @property (nonatomic, weak) id <PSWebSocketServerDelegate> delegate;
-@property (nonatomic, assign) dispatch_queue_t delegateQueue;
 
 #pragma mark - Initialization
 
