@@ -43,6 +43,9 @@
 
 @property (nonatomic, weak) id <PSWebSocketServerDelegate> delegate;
 
+- (dispatch_queue_t)delegateQueue;
+- (void)setDelegateQueue:(dispatch_queue_t)queue;
+
 #pragma mark - Initialization
 
 + (instancetype)serverWithHost:(NSString *)host port:(NSUInteger)port;
