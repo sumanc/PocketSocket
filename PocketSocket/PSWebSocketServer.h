@@ -42,7 +42,7 @@
 #pragma mark - Properties
 
 @property (nonatomic, weak) id <PSWebSocketServerDelegate> delegate;
-@property (nonatomic, strong) dispatch_queue_t delegateQueue;
+@property (nonatomic, assign) dispatch_queue_t delegateQueue;
 
 #pragma mark - Initialization
 
