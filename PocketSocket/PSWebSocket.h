@@ -56,12 +56,14 @@ typedef NS_ENUM(NSInteger, PSWebSocketReadyState) {
  */
 + (BOOL)isWebSocketRequest:(NSURLRequest *)request;
 
+- (dispatch_queue_t)delegateQueue;
+- (void)setDelegateQueue:(dispatch_queue_t)queue;
+
 #pragma mark - Properties
 
 @property (nonatomic, strong, readonly) NSURLRequest *request;
 @property (nonatomic, assign, readonly) PSWebSocketReadyState readyState;
 @property (nonatomic, weak) id <PSWebSocketDelegate> delegate;
-@property (nonatomic, strong) dispatch_queue_t delegateQueue;
 
 @property (nonatomic, assign, getter=isInputPaused) BOOL inputPaused;
 @property (nonatomic, assign, getter=isOutputPaused) BOOL outputPaused;

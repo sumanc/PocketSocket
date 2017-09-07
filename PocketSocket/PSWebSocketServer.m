@@ -81,13 +81,27 @@ void PSWebSocketServerAcceptCallback(CFSocketRef s, CFSocketCallBackType type, C
     
     NSMutableSet *_webSockets;
 }
+
+@property (nonatomic, strong) dispatch_queue_t dispatchDelegateQueue;
+
 @end
+
 @implementation PSWebSocketServer
 
 #pragma mark - Properties
 
 - (NSRunLoop *)runLoop {
     return [[PSWebSocketNetworkThread sharedNetworkThread] runLoop];
+}
+
+- (dispatch_queue_t)delegateQueue
+{
+	return self.dispatchDelegateQueue;
+}
+
+- (void)setDelegateQueue:(dispatch_queue_t)queue
+{
+	self.dispatchDelegateQueue = queue;
 }
 
 #pragma mark - Initialization
@@ -295,7 +309,7 @@ void PSWebSocketServerAcceptCallback(CFSocketRef s, CFSocketCallBackType type, C
     }
     [_webSockets addObject:webSocket];
     webSocket.delegate = self;
-    webSocket.delegateQueue = _workQueue;
+	[webSocket setDelegateQueue:_workQueue];
 }
 - (void)detachWebSocket:(PSWebSocket *)webSocket {
     if(![_webSockets containsObject:webSocket]) {
@@ -482,7 +496,7 @@ void PSWebSocketServerAcceptCallback(CFSocketRef s, CFSocketCallBackType type, C
 
             // create webSocket
             PSWebSocket *webSocket = [PSWebSocket serverSocketWithRequest:request inputStream:connection.inputStream outputStream:connection.outputStream];
-            webSocket.delegateQueue = _workQueue;
+            [webSocket setDelegateQueue:_workQueue];
             
             // attach webSocket
             [self attachWebSocket:webSocket];
@@ -671,11 +685,11 @@ void PSWebSocketServerAcceptCallback(CFSocketRef s, CFSocketCallBackType type, C
 }
 - (void)executeDelegate:(void (^)(void))work {
     NSParameterAssert(work);
-    dispatch_async((_delegateQueue) ? _delegateQueue : dispatch_get_main_queue(), work);
+    dispatch_async((_dispatchDelegateQueue) ? _dispatchDelegateQueue : dispatch_get_main_queue(), work);
 }
 - (void)executeDelegateAndWait:(void (^)(void))work {
     NSParameterAssert(work);
-    dispatch_sync((_delegateQueue) ? _delegateQueue : dispatch_get_main_queue(), work);
+    dispatch_sync((_dispatchDelegateQueue) ? _dispatchDelegateQueue : dispatch_get_main_queue(), work);
 }
 
 #pragma mark - Dealloc
