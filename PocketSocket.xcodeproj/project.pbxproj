@@ -865,6 +865,7 @@
 				EXECUTABLE_EXTENSION = dylib;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PocketSocket/PocketSocket-Prefix.pch";
+				INSTALL_PATH = "@rpath";
 				MACH_O_TYPE = mh_dylib;
 				OTHER_LDFLAGS = "-ObjC";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -885,6 +886,7 @@
 				EXECUTABLE_EXTENSION = dylib;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PocketSocket/PocketSocket-Prefix.pch";
+				INSTALL_PATH = "@rpath";
 				MACH_O_TYPE = mh_dylib;
 				OTHER_LDFLAGS = "-ObjC";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
