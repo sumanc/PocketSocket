@@ -156,7 +156,7 @@
 		EEE5E37218B37FC000BAE47A /* PSAutobahnClientWebSocketOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSAutobahnClientWebSocketOperation.h; sourceTree = "<group>"; };
 		EEE5E37318B37FC000BAE47A /* PSAutobahnClientWebSocketOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSAutobahnClientWebSocketOperation.m; sourceTree = "<group>"; };
 		EEE5E38418B385DE00BAE47A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
-		F88F0E621F866A4400560DEA /* libPocketSocket-Mac-d.dylib */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPocketSocket-Mac-d.dylib"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F88F0E621F866A4400560DEA /* libPocketSocket-Mac-d.dylib */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPocketSocket-Mac-d.dylib"; path = "PocketSocket-Mac-d.dylib"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F88F0E691F866C7E00560DEA /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -633,7 +633,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
 				PRODUCT_NAME = "PocketSocket-Mac";
-				PUBLIC_HEADERS_FOLDER_PATH = LibraryHeaders;
+				PUBLIC_HEADERS_FOLDER_PATH = StaticLibraryHeaders;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = macosx;
@@ -651,7 +651,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
 				PRODUCT_NAME = "PocketSocket-Mac";
-				PUBLIC_HEADERS_FOLDER_PATH = LibraryHeaders;
+				PUBLIC_HEADERS_FOLDER_PATH = StaticLibraryHeaders;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = macosx;
