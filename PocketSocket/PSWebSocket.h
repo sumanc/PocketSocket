@@ -68,6 +68,8 @@ typedef NS_ENUM(NSInteger, PSWebSocketReadyState) {
 @property (nonatomic, assign, getter=isInputPaused) BOOL inputPaused;
 @property (nonatomic, assign, getter=isOutputPaused) BOOL outputPaused;
 
+@property (nonatomic, strong, readonly) NSString *socketId;
+
 #pragma mark - Initialization
 
 /**
@@ -130,6 +132,12 @@ typedef NS_ENUM(NSInteger, PSWebSocketReadyState) {
  *  @param reason short textual reason why the connection was closed
  */
 - (void)closeWithCode:(NSInteger)code reason:(NSString *)reason;
+
+/**
+ * Check if there is space to send data
+*/
+- (BOOL)hasSpaceAvailabelToSend;
+
 
 #pragma mark - Stream Properties
 
